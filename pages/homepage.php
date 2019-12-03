@@ -1,6 +1,9 @@
 <?php 
   session_start(); 
   require '../php/db_connection.php';
+
+  
+
 ?>
 
 <!DOCTYPE html>
@@ -42,9 +45,6 @@
       
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="">Home</a>
-              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Browse Pets
@@ -78,16 +78,20 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="./profile/addPetOwner.php">Add Pet Owner</a>
                 </div>
-              </li>
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="./donation/MakeDonation.html">Make Donation</a>
               </li>
+            </ul>
+            <div>
+            <ul class="navbar-nav mr-auto">
               <li class="nav-item">
                 <a class="nav-link" href="./profile/profile.php">Profile</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../php/logout.php">Log out</a>
+              </li>
             </ul>
+            </div>
           </div>
         </nav>
         <p>
@@ -127,7 +131,7 @@
                 echo "you have admin permisions. <br>";  
               else if($_SESSION["volunteer"] == true) 
                 echo "you have volunteer permisions. <br>";
-              else 
+              else
                 echo "you are el personerino.";?>
             <br>
             makeReservation - do on browse pet screen
