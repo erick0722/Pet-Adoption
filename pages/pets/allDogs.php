@@ -8,27 +8,7 @@ $result = $conn->query($sql);
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-tr:first-child{
-  background-color: #81DAF5;
-}
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
+  <link rel="stylesheet" href="../../css/tables.css">
 </head>
 <body>
 <center>
