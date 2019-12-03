@@ -57,6 +57,16 @@
                   <a class="dropdown-item" href="./pets/allPet.php">All Pets</a>
                 </div>
               </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Add/Edit Pets
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="./pets/addPet.html">Add Pet</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="./pets/addMedicalHistory.html">Edit Medical History</a>
+                </div>
+              </li>
               <li class="nav-item">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,7 +76,6 @@
                   <a class="dropdown-item" href="./profile/addVolunteer.php">Add Volunteer</a>
                   <a class="dropdown-item" href="./profile/addSupervisor.php">Add Supervisor</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="./profile/addPetDonor.php">Add Pet Donor</a>
                   <a class="dropdown-item" href="./profile/addPetOwner.php">Add Pet Owner</a>
                 </div>
               </li>
