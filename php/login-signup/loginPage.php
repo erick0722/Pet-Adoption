@@ -1,6 +1,12 @@
 <?php session_start(); 
 require '../db_connection.php';
 
+// remove all session variables
+session_unset();
+  
+// destroy the session
+session_destroy();
+
 $sql = "SELECT ID, Fname, Lname FROM person";
 $result = $conn->query($sql);
 

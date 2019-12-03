@@ -14,7 +14,6 @@ $result = $conn->query($sql);
 <center>
 <h2>All Cats</h2>
 
-
 <table>
   <tr>
     <th>Pet Id</th>
@@ -30,24 +29,24 @@ $result = $conn->query($sql);
     <th>Owner</th>
   </tr>
  
-<?php
-while($row = mysqli_fetch_array($result))
-  {
-  echo "<tr>";
-  echo "<td>" . $row['Pet_id'] . "</td>";
-  echo "<td>" . $row['Name'] . "</td>";
-  echo "<td>" . $row['Breed'] . "</td>";
-  echo "<td>" . $row['Sex'] . "</td>";
-  echo "<td>" . $row['Age'] . "</td>";
-  echo "<td>" . $row['Appearance'] . "</td>";
-  echo "<td>" . $row['Ready_to_adopt'] . "</td>";
-  echo "<td>" . $row['Adopt_date'] . "</td>";
-  echo "<td>" . $row['Donor_id'] . "</td>";
-  echo "<td>" . $row['Shelter_num'] . "</td>";
-  echo "<td>" . $row['Owner_id'] . "</td>";
-  echo "</tr>";
-  }
-  $conn->close();
+  <?php
+  while($row = mysqli_fetch_array($result))
+    {
+    echo "<tr>";
+    echo "<td>" . $row['Pet_id'] . "</td>";
+    echo "<td>" . $row['Name'] . "</td>";
+    echo "<td>" . $row['Breed'] . "</td>";
+    echo "<td>" . $row['Sex'] . "</td>";
+    echo "<td>" . $row['Age'] . "</td>";
+    echo "<td>" . $row['Appearance'] . "</td>";
+    echo "<td>" . $row['Ready_to_adopt'] . "</td>";
+    echo "<td>" . $row['Adopt_date'] . "</td>";
+    echo "<td>" . $row['Donor_id'] . "</td>";
+    echo "<td>" . $row['Shelter_num'] . "</td>";
+    echo "<td>" . $row['Owner_id'] . "</td>";
+    echo "</tr>";
+    }
+    $conn->close();
   ?>
   </center>
   </table>
