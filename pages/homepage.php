@@ -11,8 +11,6 @@
             $badPage = false;
           }
       }
-  } else {
-      echo "0 results";
   }
   if($badPage) {
     // remove all session variables
@@ -23,6 +21,32 @@
   
     header("Location: ../index.php");
   }
+?>
+
+<?php 
+  $_SESSION["admin"]     = false;
+  $_SESSION["volunteer"] = false;
+  $sql = "SELECT ID FROM supervisor";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+          if($_SESSION["id"] == $row["ID"]) {
+            $_SESSION["admin"]     = true;
+            $_SESSION["volunteer"] = true;
+          }
+      }
+  }
+
+  $sql = "SELECT ID FROM volunteer";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+          if($_SESSION["id"] == $row["ID"]) {
+            $_SESSION["volunteer"] = true;
+          }
+      }
+  }
+  $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -76,29 +100,37 @@
                 <a class="dropdown-item" href="./pets/allPet.php">All Pets</a>
               </div>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Add/Edit Pets
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="./pets/addPet.html">Add Pet</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="./pets/addMedicalHistory.html">Edit Medical History</a>
-              </div>
-            </li>
+            <?php if($_SESSION["volunteer"]) { ?>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Add/Edit Pets
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="./pets/addPet.html">Add Pet</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="./pets/addMedicalHistory.html">Edit Medical History</a>
+                </div>
+              </li>
+            <?php } ?>
+            <?php
+              if($_SESSION["volunteer"]) { ?>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Add/Edit People
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="./profile/addPetOwner.php">Add Pet Owner</a>
+                <?php  
+                  if($_SESSION["admin"]) { ?>
+                    <div class="dropdown-divider"></div> 
+                    <a class="dropdown-item" href="./profile/addVolunteer.php">Add Volunteer</a> 
+                    <a class="dropdown-item" href="./profile/addSupervisor.php">Add Supervisor</a>
+                <?php } ?>
+                </div>
+              </li>
+            <?php } ?>
             <li class="nav-item">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Add people/pets
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="./profile/addVolunteer.php">Add Volunteer</a>
-                <a class="dropdown-item" href="./profile/addSupervisor.php">Add Supervisor</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="./profile/addPetOwner.php">Add Pet Owner</a>
-              </div>
-            <li class="nav-item">
-              <a class="nav-link" href="./donation/MakeDonation.html">Make Donation</a>
+              <a class="nav-link" href="./donation/makeDonation.html">Make Donation</a>
             </li>
           </ul>
           <div>
@@ -114,52 +146,13 @@
         </div>
       </nav>
     <div id="outer-container">
-      <p>
-        <?php 
-          $_SESSION["admin"]     = false;
-          $_SESSION["volunteer"] = false;
-          echo "Greetings " . $_SESSION["fname"] . " " . $_SESSION["lname"] . "! <br>";
-          $sql = "SELECT ID FROM supervisor";
-          $result = $conn->query($sql);
-          if ($result->num_rows > 0) {
-              while($row = $result->fetch_assoc()) {
-                  if($_SESSION["id"] == $row["ID"]) {
-                    $_SESSION["admin"]     = true;
-                    $_SESSION["volunteer"] = true;
-                  }
-              }
-          } else {
-              echo "0 results";
-          }
-
-          $sql = "SELECT ID FROM volunteer";
-          $result = $conn->query($sql);
-          if ($result->num_rows > 0) {
-              while($row = $result->fetch_assoc()) {
-                  if($_SESSION["id"] == $row["ID"]) {
-                    $_SESSION["volunteer"] = true;
-                  }
-              }
-          } else {
-              echo "0 results";
-          }
-          $conn->close();
-        ?>
-          <br>
-          <?php 
-            if($_SESSION["admin"] == true) 
-              echo "you have admin permisions. <br>";  
-            else if($_SESSION["volunteer"] == true) 
-              echo "you have volunteer permisions. <br>";
-            else
-              echo "you are el personerino.";?>
-          <br>
-          makeReservation - do on browse pet screen
-          <br>
-          requestSearch - do on browse pets
-          <br>
-          updateProfile - do on profile
-      </p>
+      <h1> Hello and Welcome to Pet Next Door! </h1>
+        <br>
+        makeReservation - do on browse pet screen
+        <br>
+        requestSearch - do on browse pets
+        <br>
+        updateProfile - do on profile
     </div>
   </body>
 </html>
