@@ -14,35 +14,35 @@
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
             <link rel="stylesheet" href="../../css/login.css">
-           
+
     </head>
     <body>
-        <p>
-            <h3 id="title">Add a Volunteer</h3>
-            <div id="loginbox">
-                <form action="../../php/profile/add_Volunteer.php" method="post">
-                    <div class="form-group">
-                        <label for="id">Person ID:</label>
-                        <input type="number" class="form-control" id="id" name="id" placeholder="Enter person ID">
-                        <small id="id" class="form-text text-muted">Enter the id of a person, who will turn into a volunteer</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="spec">Specialization</label>
-                        <input type="text" class="form-control" id="spec" name="spec" placeholder="Enter Specialization">
-                    </div>
-                    <div class="form-group">
-                        <label for="sd">Start Date</label>
-                        <input type="date" class="form-control" id="sd" name="sd" placeholder="YYYY-MM-DD">
-                    </div>
-                    <div class="form-group">
-                        <label for="sid">Supervisor ID:</label>
-                        <input type="number" class="form-control" id="sid" name="sid" placeholder="Enter supervisor ID">
-                    </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div> 
-        </p>
-        <script src="" async defer></script>
+        <h3 id="title">Add a Volunteer</h3>
+        <div id="loginbox">
+            <form action="../../php/profile/add_Volunteer.php" method="post">
+                <div class="form-group">
+                    <label for="id">Person ID:</label>
+                    <input type="number" class="form-control" id="id" name="id" placeholder="Enter person ID">
+                    <small id="id" class="form-text text-muted">Enter the id of a person, who will turn into a volunteer</small>
+                </div>
+                <div class="form-group">
+                    <label for="spec">Specialization</label>
+                    <input type="text" class="form-control" id="spec" name="spec" placeholder="Enter Specialization">
+                </div>
+                <div class="form-group">
+                    <label for="sd">Start Date</label>
+                    <input type="date" class="form-control" id="sd" name="sd" placeholder="YYYY-MM-DD">
+                </div>
+                <div class="form-group">
+                    <label for="sid">Supervisor ID:</label>
+                    <input type="number" class="form-control" id="sid" name="sid" placeholder="Enter supervisor ID">
+                </div>
+                <div class="form-group">
+                    <label for="snum">Shelter Number:</label>
+                    <input type="number" class="form-control" id="snum" name="snum" placeholder="Enter shelter number">
+                </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div> 
     </body>
-
 </html>

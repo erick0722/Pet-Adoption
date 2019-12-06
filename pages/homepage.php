@@ -98,6 +98,7 @@
                 <a class="dropdown-item" href="./pets/allCritters#">Critters</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="./pets/allPet.php">All Pets</a>
+                <a class="dropdown-item" href="./pets/listReservedPets.php">All Reserved Pets</a>
               </div>
             </li>
             <?php if($_SESSION["volunteer"]) { ?>
@@ -106,9 +107,10 @@
                   Add/Edit Pets
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="./pets/addPet.html">Add Pet</a>
+                  <a class="dropdown-item" href="./pets/addPet.php">Add Pet</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="./pets/addMedicalHistory.html">Edit Medical History</a>
+                  <a class="dropdown-item" href="./pets/editPet.php">Edit Pet</a>
+                  <a class="dropdown-item" href="./pets/deletePet.php">Delete Pet</a>
                 </div>
               </li>
             <?php } ?>
@@ -125,12 +127,14 @@
                     <div class="dropdown-divider"></div> 
                     <a class="dropdown-item" href="./profile/addVolunteer.php">Add Volunteer</a> 
                     <a class="dropdown-item" href="./profile/addSupervisor.php">Add Supervisor</a>
+                    <div class="dropdown-divider"></div> 
+                    <a class="dropdown-item" href="./profile/removeVolunteer.php">Remove Volunteer</a> 
                 <?php } ?>
                 </div>
               </li>
             <?php } ?>
             <li class="nav-item">
-              <a class="nav-link" href="./donation/makeDonation.html">Make Donation</a>
+              <a class="nav-link" href="./donation/makeDonation.php">Make Donation</a>
             </li>
           </ul>
           <div>
@@ -148,11 +152,7 @@
     <div id="outer-container">
       <h1> Hello and Welcome to Pet Next Door! </h1>
         <br>
-        makeReservation - do on browse pet screen
-        <br>
-        requestSearch - do on browse pets
-        <br>
-        updateProfile - do on profile
+        
     </div>
   </body>
 </html>

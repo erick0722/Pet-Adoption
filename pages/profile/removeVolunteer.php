@@ -17,20 +17,14 @@
     </head>
 
     <body>
-        <h3 id="title">Add Medical History</h3>
+        <h3 id="title">Remove Volunteer</h3>
         <div id="loginbox">
-          <form>
+          <form action="../../php/profile/remove_Volunteer.php" method="post">
             <div class="form-group">
-                <label for="id">Pet ID:</label>
-                <input type="number" class="form-control" id="ID" placeholder="1234567890">
+                <label for="id">ID:</label>
+                <input type="number" class="form-control" id="id" name="id" placeholder="Enter Volunteer ID">
+              <br><button type="submit" name="delete"  class="btn btn-danger">Delete</button></br>
             </div>
-            <div class="form-group">
-              <label for="condition">Conditions:</label>
-              <input type="text" class="form-control" id="condition" placeholder="">
-          </div>
-              
-            
-            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
         <script src="" async defer></script>

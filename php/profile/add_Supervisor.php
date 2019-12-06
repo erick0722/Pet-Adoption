@@ -1,25 +1,28 @@
 <?php 
     require '../db_connection.php';
 
-    $id = test_input($_POST["id"]);
-    $salary = test_input($_POST["salary"]);
+    $id = mysqli_real_escape_string($conn, $_POST["id"]);
+    $salary = mysqli_real_escape_string($conn, $_POST["salary"]);
     
-    $result = $conn->query("SELECT ID FROM person WHERE ID = $id");
+    if ($stmt = $conn->prepare('SELECT ID FROM person WHERE ID = ?')) {
 
-    if($result->num_rows == 0) {
-        echo "ID not found.";
-    }else {
-        $sql = "INSERT INTO supervisor (ID, Salary) 
-        VALUES ('$id', '$salary')";
+        $stmt->bind_param("i", $id);
+    
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-            header('Location: ../../pages/homepage.php');
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+        if($result->num_rows == 0) {
+            echo "ID not found.";
+        }else{
+            if($stmt2 = $conn->prepare('INSERT INTO supervisor (ID, Salary) VALUES (?, ?)')){
+                $stmt2->bind_param("ii", $id, $salary);
+                $stmt2->execute();
+            }
         }
     }
+    header('Location: ../../pages/homepage.php');
+    
     
     $conn->close();
-    ?>
+?>
 

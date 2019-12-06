@@ -1,3 +1,7 @@
+<?php
+session_start(); 
+require '../../php/db_connection.php';
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -14,23 +18,32 @@
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
             <link rel="stylesheet" href="../../css/login.css">
+           
     </head>
     <body>
         <p>
-            <h1 id="sitetitle"> Make Donation </h1>
+            <h3 id="title">Edit Volunteer</h3>
             <div id="loginbox">
-                <form>
+                <form action="../../php/profile/edit_Volunteer.php" method="post">
                     <div class="form-group">
-                        <label for="id">First name:</label>
-                        <input type="text" class="form-control" id="id" placeholder="Enter your first name">
+                        <label for="id">Volunteer ID:</label>
+                        <?php echo "<input type=\"number\" class=\"form-control\" id=\"id\" name=\"id\" value=" . $_GET['ID'] . " readonly>"; ?>
                     </div>
                     <div class="form-group">
-                        <label for="id">Last name:</label>
-                        <input type="text" class="form-control" id="id" placeholder="Enter your last name">
+                        <label for="spec">Specialization</label>
+                        <input type="text" class="form-control" id="spec" name="spec" placeholder="Enter Specialization">
                     </div>
                     <div class="form-group">
-                        <label for="sid">Donation Amount:</label>
-                        <input type="number" class="form-control" id="sid" placeholder="Enter amount">
+                        <label for="sd">Start Date</label>
+                        <input type="date" class="form-control" id="sd" name="sd" placeholder="YYYY-MM-DD">
+                    </div>
+                    <div class="form-group">
+                        <label for="sid">Supervisor ID:</label>
+                        <input type="number" class="form-control" id="sid" name="sid" placeholder="Enter supervisor ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="snum">Shelter Number:</label>
+                        <input type="number" class="form-control" id="snum" name="snum" placeholder="Enter shelter number">
                     </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -38,4 +51,5 @@
         </p>
         <script src="" async defer></script>
     </body>
+
 </html>

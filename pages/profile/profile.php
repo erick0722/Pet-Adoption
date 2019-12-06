@@ -15,50 +15,86 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="../../css/login.css">
     </head>
     <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="../homepage.php">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../pets/pets.php">Browse Pets</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../donation/donation.php">Make Donation</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">Profile</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Add Volunteer</a>
-                  <a class="dropdown-item" href="#">Add Supervisor</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Add Pet Donor</a>
-                  <a class="dropdown-item" href="#">Add Pet Owner</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
+    <h3 id="title">Edit your info</h3>
+    <div id="loginbox">
+      <form action="../../php/login-signup/updateUser.php" method="post">
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label for="fname">First name</label>
+            <input type="text" class="form-control" id="fname" name="fname" placeholder="John">
           </div>
-        </nav>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        haha yes this is the profile retard
-        <script src="" async defer></script>
+          <div class="col">
+            <label for="lname">Last name</label>
+            <input type="text" class="form-control" id="lname" name="lname" placeholder="Smith">
+          </div>
+        </div>
+      </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col">
+              <label for="sex">Sex</label>
+              <select id="sex" name="sex" class="form-control">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="col">
+              <label for="bd">Birthdate</label>
+              <input type="date" class="form-control" id="bd"  name="bd">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col">
+              <label for="country">Country</label>
+              <input type="text" class="form-control" id="country" name="country" placeholder="Canada">
+            </div>
+            <div class="col">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city" name="city" placeholder="Calgary">
+            </div>
+            <div class="col">
+              <label for="state">State/Province</label>
+              <input type="text" class="form-control" id="state" name="state" placeholder="Alberta">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="number" class="form-control" id="phone" name="phone" 
+                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Enter phone number">
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="OldPw">Old Password</label>
+          <input type="password" class="form-control" id="OldPw" name="OldPw" placeholder="Enter old password">
+        </div>
+        <div class="form-group">
+          <label for="pw1">New Password</label>
+          <input type="password" class="form-control" id="pw1" name="pw1" oninput="check_pass()" placeholder="Enter new password">
+        </div>
+        <div class="form-group">
+          <label for="pw2">Confirm New Password</label>
+          <input type="password" class="form-control" id="pw2" name="pw2" oninput="check_pass()" placeholder="Re-enter new password">
+        </div>
+        <p id="pw-error">New Passwords must match.</p>
+        <button type="submit" class="btn btn-primary" id="btn" name="sb" disabled="disabled">Submit</button>
+      </form>
+    </div>
     </body>
+    <script type="text/javascript" src="../../js/signup.js"></script>
 </html>

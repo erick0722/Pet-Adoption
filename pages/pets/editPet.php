@@ -17,49 +17,64 @@
     </head>
 
     <body>
-        <h3 id="title">Add Pet</h3>
+        <h3 id="title">Edit Pet</h3>
         <div id="loginbox">
-          <form>
+          <form action="../../php/pet/edit_Pet.php" method="post">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" placeholder="Iggy">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Iggy">
             </div>
             <div class="form-group">
                 <label for="color">Color/Pattern:</label>
-                <input type="text" class="form-control" id="color" placeholder="">
+                <input type="text" class="form-control" id="color" name="color" placeholder="">
             </div>
             <div class="form-group">
-                <label for="d-id">Donor ID:</label>
-                <input type="numver" class="form-control" id="d-id" placeholder="">
+                <label for="d_id">Donor ID(If known):</label>
+                <input type="number" class="form-control" id="d_id" name="d_id" placeholder="">
             </div>
             <div class="form-group">
-                <label for="s-id">Shelter ID:</label>
-                <input type="numver" class="form-control" id="s-id" placeholder="">
+                <label for="s_id">Shelter ID:</label>
+                <input type="number" class="form-control" id="s_id" name="s_id" placeholder="">
             </div>
             <div class="form-group">
-                <label for="o-id">Owner ID:</label>
-                <input type="numver" class="form-control" id="o-id" placeholder="">
+                <label for="o_id">Owner ID(If known):</label>
+                <input type="number" class="form-control" id="o_id" name="o_id" placeholder="">
             </div>
+            <div class="form-group">
+              <label for="mcondition">Medical Conditions(If any):</label>
+              <input type="text" class="form-control" id="mcondition" name="mcondition" placeholder="">
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col">
+                <label for="spec">Species:</label>
+                <select id="spec" name="spec" class="form-control">
+                  <option>Dog</option>
+                  <option>Cat</option>
+                  <option>Critter</option>
+                </select>
+              </div>
             <div class="form-group">
               <div class="row">
                 <div class="col">
                   <label for="sex">Sex:</label>
-                  <select id="sex" class="form-control">
+                  <select id="sex" name="sex" class="form-control">
                     <option>Male</option>
                     <option>Female</option>
                   </select>
                 </div>
                 <div class="col">
                     <label for="age">Age:</label>
-                    <input type="number" class="form-control" id="age" placeholder="Enter Age">
+                    <input type="number" name="age" class="form-control" id="age" name="age" placeholder="Enter Age">
                 </div>
                 <div class="col">
-                  <label for="bd">Adoption Date:</label>
-                  <input type="date" class="form-control" id="bd">
+                  <label for="adopt_date">Adoption Date:</label>
+                  <input type="date" class="form-control" name="adopt_date" id="adopt_date">
                 </div>
               </div>
+              <br><button type="submit" style="float: right;" class="btn btn-primary">Submit</button></br>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            
           </form>
         </div>
         <script src="" async defer></script>

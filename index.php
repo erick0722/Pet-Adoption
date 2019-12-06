@@ -7,7 +7,7 @@
 
   // remove all session variables
   session_unset();
-
+  
   // destroy the session
   session_destroy();
 ?>
@@ -31,8 +31,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   </head>
   <body>
-    <h1 id="sitetitle">Welcome to Pet Next Door!</h1>
-    <h3 id="title">Signup</h3>
+    <h3 id="title">Signup to Pet Next Door</h3>
     <div id="loginbox">
       <form action="./php/login-signup/addUser.php" method="post">
       <div class="form-group">
@@ -86,7 +85,7 @@
         <div class="form-group">
           <label for="phone">Phone</label>
           <input type="number" class="form-control" id="phone" name="phone" 
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Enter phone number">
+                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Enter phone number">
         </div>
         <div class="form-group">
           <label for="email">Email address</label>
@@ -95,16 +94,16 @@
         </div>
         <div class="form-group">
           <label for="pw1">Password</label>
-          <input type="password" class="form-control" id="pw1" name="pw1" oninput="check_pass()" placeholder="Enter Password">
+          <input type="password" class="form-control" id="pw1" name="pw1" oninput="check_pass()" placeholder="Enter password">
         </div>
         <div class="form-group">
           <label for="pw2">Confirm Password</label>
-          <input type="password" class="form-control" id="pw2" name="pw2" oninput="check_pass()" placeholder="Re-enter Password">
+          <input type="password" class="form-control" id="pw2" name="pw2" oninput="check_pass()" placeholder="Re-enter password">
         </div>
         <p id="pw-error">Passwords must match.</p>
-      <button type="submit" class="btn btn-primary" id="btn" name="sb">Submit</button>
+        <button type="submit" class="btn btn-primary" id="btn" name="sb" disabled="disabled">Submit</button>
       </form>
-      <a href="./php/login-signup/loginPage.php">Log in instead.</a>
+      <a href="./loginPage.php">Log in instead.</a>
     </div>
     <script type="text/javascript" src="./js/signup.js"></script>
   </body>

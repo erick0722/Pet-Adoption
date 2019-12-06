@@ -17,20 +17,17 @@
     </head>
 
     <body>
-        <h3 id="title">Add Medical History</h3>
+        <h3 id="title">Reserve Pet</h3>
         <div id="loginbox">
-          <form>
+          <form action="../../php/pet/reserve_Pet.php" method="post">
             <div class="form-group">
-                <label for="id">Pet ID:</label>
-                <input type="number" class="form-control" id="ID" placeholder="1234567890">
+                <label for="id">ID:</label>
+                <?php echo "<input type=\"number\" class=\"form-control\" id=\"id\" name=\"id\" value=" . $_GET['ID'] . " readonly>"; ?>
+                <br>
+                <label for="rd">Reserve Date</label>
+                <input type="date" class="form-control" id="rd"  name="rd">
+              <br><button type="submit" name="reserve" class="btn btn-primary">Reserve</button></br>
             </div>
-            <div class="form-group">
-              <label for="condition">Conditions:</label>
-              <input type="text" class="form-control" id="condition" placeholder="">
-          </div>
-              
-            
-            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
         <script src="" async defer></script>
