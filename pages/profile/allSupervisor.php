@@ -74,11 +74,6 @@
 <center>
 <h2>All Supervisors</h2>
 </center>
-
-<form class="example"  action="../../php/profile/searchVolunteer.php" method="post" style="margin:auto;max-width:350px;" >
-<input type="text" class="form-control" id="search" name="search" placeholder="Search by keyword">
-  <button type="search" class="btn btn-primary">Search</button>
-</form>
 <br></br>
 
 <table>
