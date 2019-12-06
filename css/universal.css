@@ -1,6 +1,39 @@
-#outer-container {
+div {
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  background-image: url('../assets/pets_big.png');
+  height: 100%;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  /*we want to have one single image not a repeated one*/
+  background-size: 150% 205%;
+
+  /*this sets the image to fullscreen covering the whole screen*/
+  /*css hack for ie*/
+
+  color: rgb(250, 246, 246);
+}
+
+body {
     padding-top: 10px;
     padding-right: 30px;
     padding-bottom: 10px;
     padding-left: 30px;
-}
+    background-image: url('../assets/pets_big.png');
+    height: 100%;
+    width: 100%;
+  
+    background-repeat: no-repeat;
+    /*we want to have one single image not a repeated one*/
+    background-size: 150% 205%;
+  
+    /*this sets the image to fullscreen covering the whole screen*/
+    /*css hack for ie*/
+  
+    color: rgb(250, 246, 246);
+  }
+  
+  

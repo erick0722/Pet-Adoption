@@ -81,6 +81,7 @@
       <link rel="stylesheet" href="../css/universal.css">
     </head>
     <body>
+      <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="">Pet Next Door</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -156,10 +157,20 @@
           </div>
         </div>
       </nav>
-    <div id="outer-container">
-      <h1> Hello and Welcome to Pet Next Door! </h1>
-        <br>
-        
+      </div>
+    <div class="outer-container" style=" 
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+
+    background-image: url('../assets/pets_big.png');
+    height: 730px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 90%;
+    color: rgb(250, 246, 246);"
+     >  
     </div>
   </body>
 </html>

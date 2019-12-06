@@ -16,8 +16,10 @@ $result = $conn->query($sql);
 
 <table>
   <tr>
-    <th>Pet Id - Name</th>
-    <th>Reserved By ID - Name</th>
+    <th>Pet ID</th>
+    <th>Pet Name</th>
+    <th>Reserver ID</th>
+    <th>Reserver Name</th>
     <th>Reserve Date</th>
     <th>Pet Breed</th>
     <th>Sex</th>
@@ -47,8 +49,10 @@ $result = $conn->query($sql);
         $row3 = mysqli_fetch_array($p_result);
 
     echo "<tr>";
-    echo "<td>" . $row['Pet_id'] . " - " . $row['Name'] . "</td>";
-    echo "<td>" . $row['ID'] . " - " . $row3['Fname'] . " " . $row3['Lname'] .  "</td>";
+    echo "<td>" . $row['Pet_id'] . "</td>";
+    echo "<td>" . $row['Name'] . "</td>";
+    echo "<td>" . $row['ID'] .  "</td>";
+    echo "<td>" . $row3['Fname'] ." ". $row3['Lname']."</td>";
     echo "<td>" . $row['Reserve_date'] . "</td>";
     echo "<td>" . $row2['Breed'] . "</td>";
     echo "<td>" . $row['Sex'] . "</td>";

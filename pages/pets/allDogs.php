@@ -27,15 +27,15 @@ require '../../php/db_connection.php';
       crossorigin="anonymous"></script>
 </head>
 <body>  
+<br>
 <center>
 <h2>All Dogs</h2>
 </center>
 
 <br>
-<br>
-
 <table>
   <tr>
+    <th>Reserve</th>
     <th>Pet Id</th>
     <th>Name</th>
     <th>Breed</th>
@@ -54,12 +54,14 @@ require '../../php/db_connection.php';
   
   $sql = "SELECT * FROM pet, dog WHERE pet.Pet_id = dog.Pet_id";
   $result = $conn->query($sql);
-
+  $id_array = array();
+  $n = 0;
 while($row = mysqli_fetch_array($result))
   {
     
-
+    array_push($id_array, $row['Pet_id']);
     echo "<tr>";
+    echo '<td>  <a  href="reservePet.php?ID=' . $id_array[$n] . '" class="btn btn-primary"> Reserve </a></td>';
     echo "<td>" . $row['Pet_id'] . "</td>";
     echo "<td>" . $row['Name'] . "</td>";
     echo "<td>" . $row['Breed'] . "</td>";
@@ -73,6 +75,7 @@ while($row = mysqli_fetch_array($result))
     echo "<td>" . $row['Shelter_num'] . "</td>";
     echo "<td>" . $row['Owner_id'] . "</td>";
     echo "</tr>";
+    $n++;
   }
   
   $conn->close();
