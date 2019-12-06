@@ -21,8 +21,12 @@
         <div id="loginbox">
           <form action="../../php/pet/edit_Pet.php" method="post">
             <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Iggy">
+                <label for="id">Pet ID:</label>
+                <input type="number" class="form-control" id="id" name="id" placeholder="Enter Pet ID">
+            </div>
+            <div class="form-group">
+                <label for="name">Pet Name:</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="">
             </div>
             <div class="form-group">
                 <label for="color">Color/Pattern:</label>
@@ -37,14 +41,10 @@
                 <input type="number" class="form-control" id="s_id" name="s_id" placeholder="">
             </div>
             <div class="form-group">
-                <label for="o_id">Owner ID(If known):</label>
-                <input type="number" class="form-control" id="o_id" name="o_id" placeholder="">
-            </div>
-            <div class="form-group">
               <label for="mcondition">Medical Conditions(If any):</label>
               <input type="text" class="form-control" id="mcondition" name="mcondition" placeholder="">
           </div>
-          <div class="form-group">
+          
             <div class="row">
               <div class="col">
                 <label for="spec">Species:</label>
@@ -54,26 +54,31 @@
                   <option>Critter</option>
                 </select>
               </div>
-            <div class="form-group">
-              <div class="row">
+              <div class="col">
+                    <label for="breed">Breed:</label>
+                    <input type="text" name="breed" class="form-control" id="breed" name="breed">
+                </div>
                 <div class="col">
                   <label for="sex">Sex:</label>
                   <select id="sex" name="sex" class="form-control">
                     <option>Male</option>
                     <option>Female</option>
                   </select>
-                </div>
+                </div>   
                 <div class="col">
                     <label for="age">Age:</label>
                     <input type="number" name="age" class="form-control" id="age" name="age" placeholder="Enter Age">
                 </div>
                 <div class="col">
-                  <label for="adopt_date">Adoption Date:</label>
-                  <input type="date" class="form-control" name="adopt_date" id="adopt_date">
+                  <label for="adopt">Ready to Adopt?:</label>
+                  <select id="adopt" name="adopt" class="form-control">
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
                 </div>
               </div>
               <br><button type="submit" style="float: right;" class="btn btn-primary">Submit</button></br>
-            </div>
+           
             
           </form>
         </div>

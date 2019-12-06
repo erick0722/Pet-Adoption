@@ -27,53 +27,78 @@ require '../../php/db_connection.php';
       crossorigin="anonymous"></script>
 </head>
 <body>  
+<br>
 <center>
-<h2>All Dogs</h2>
+<h2>All Pet Owners</h2>
 </center>
 
-<br>
 <br>
 
 <table>
   <tr>
-    <th>Pet Id</th>
+    <th>Id</th>
     <th>Name</th>
-    <th>Breed</th>
     <th>Sex</th>
-    <th>Age</th>
-    <th>Color/Pattern</th>
-    <th>Medical Conditions</th>
-    <th>Ready to Adopt</th>
-    <th>Adopted date</th>
-    <th>Donor</th>
-    <th>Shelter</th>
-    <th>Owner</th>
+    <th>City</th>
+    <th>Address</th>
+    <th>Bdate</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Pet Id</th>
+    <th>Pet Name</th>
+    <th>Pet Breed</th>
+    <th>Adopt Date</th>
+
+    
   </tr>
  
-<?php
+<?php  
+  $sql = "SELECT * FROM person as p, pet_owner as pr WHERE p.ID = pr.ID";
   
-  $sql = "SELECT * FROM pet, dog WHERE pet.Pet_id = dog.Pet_id";
   $result = $conn->query($sql);
+  
+  $sql2 = "SELECT * FROM pet as p, pet_owner as po WHERE po.Pet_id = p.Pet_id"; 
 
+  $result2 = $conn->query($sql2);
+ 
+$id_array = array();
+$pid_array = array();
+$n = 0;
 while($row = mysqli_fetch_array($result))
-  {
-    
+{
+    array_push($id_array, $row['ID']);
+    array_push($pid_array, $row['Pet_id']);
 
-    echo "<tr>";
-    echo "<td>" . $row['Pet_id'] . "</td>";
-    echo "<td>" . $row['Name'] . "</td>";
-    echo "<td>" . $row['Breed'] . "</td>";
+    $row2 = mysqli_fetch_array($result2);
+
+    $result3 = $conn->query("SELECT * FROM dog WHERE pet_id = $pid_array[$n]");
+    $result4 = $conn->query("SELECT * FROM cat WHERE pet_id = $pid_array[$n]");
+    $result5 = $conn->query("SELECT * FROM critter WHERE pet_id = $pid_array[$n]");
+
+    if($result3->num_rows != 0) 
+      $row3 = mysqli_fetch_array($result3);
+    else if($result4->num_rows != 0) 
+      $row3 = mysqli_fetch_array($result4);
+    else
+      $row3 = mysqli_fetch_array($result5);
+       
+    echo "<tr>"; 
+    echo "<td>" . $id_array[$n] . "</td>";
+    echo "<td>" . $row['Fname'] ." ". $row['Lname'] . "</td>";
     echo "<td>" . $row['Sex'] . "</td>";
-    echo "<td>" . $row['Age'] . "</td>";
-    echo "<td>" . $row['Appearance'] . "</td>";
-    echo "<td>" . $row['Conditions'] . "</td>";
-    echo "<td>" . $row['Ready_to_adopt'] . "</td>";
-    echo "<td>" . $row['Adopt_date'] . "</td>";
-    echo "<td>" . $row['Donor_id'] . "</td>";
-    echo "<td>" . $row['Shelter_num'] . "</td>";
-    echo "<td>" . $row['Owner_id'] . "</td>";
+    echo "<td>" . $row['City'] . " ". $row['State']. " ". $row['Country'] . "</td>";
+    echo "<td>" . $row['Address'] . "</td>";
+    echo "<td>" . $row['Bdate'] . "</td>";
+    echo "<td>" . $row['Phone'] . "</td>";
+    echo "<td>" . $row['Email'] . "</td>";
+    echo "<td>" . $pid_array[$n] . "</td>";
+    echo "<td>" . $row2['Name'] . "</td>";
+    echo "<td>" . $row3['Breed'] . "</td>";
+    echo "<td>" . $row2['Adopt_date'] . "</td>";
     echo "</tr>";
-  }
+    $n++;
+}
+  $_SESSION['$id_array'] = $id_array;
   
   $conn->close();
   ?>

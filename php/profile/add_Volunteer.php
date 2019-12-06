@@ -26,6 +26,10 @@
             }else if($result2->num_rows ==0){
                 echo "Supervisor ID not found.";
             }else {
+                $sql = "SELECT * FROM volunteer WHERE ID = $id";
+                $result = $conn->query($sql);
+                if($result->num_rows == 0)
+                {
                 if ($stmt3 = $conn->prepare('INSERT INTO volunteer (ID, StartDate, Super_id) VALUES (?,?,?)')) {
                     $stmt3->bind_param("isi", $id, $start_date, $super_id);
                     $stmt3->execute();
@@ -33,16 +37,17 @@
                         $stmt4->bind_param("is", $id, $specialization);
                         $stmt4->execute();
                         if ($stmt5 = $conn->prepare('INSERT INTO volunteer_at(ID,Snum) VALUES (?,?)')) {
-                            $stmt5->bind_param("isi", $id, $start_date, $super_id);
+                            $stmt5->bind_param("ii", $id, $snum);
                             $stmt5->execute();
-                            header('Location: ../../pages/homepage.php?add=Success');
+                            
                         } 
                     }
+                }
                 }
             }  
         }
     }
-    header('Location: ../../pages/homepage.php?add=Failed');
+    header('Location: ../../pages/profile/allVolunteer.php');
     
     $conn->close();
 ?>

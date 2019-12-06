@@ -28,66 +28,92 @@ require '../../php/db_connection.php';
 </head>
 <body>  
 <center>
-<h2>All Volunteers</h2>
+<h2>All Supervisors</h2>
 </center>
-<br></br> 
+
+<form class="example"  action="../../php/profile/searchVolunteer.php" method="post" style="margin:auto;max-width:350px;" >
+<input type="text" class="form-control" id="search" name="search" placeholder="Search by keyword">
+  <button type="search" class="btn btn-primary">Search</button>
+</form>
+<br></br>
+
 <table>
   <tr>
     <th>Action</th>
     <th>Id</th>
     <th>Name</th>
     <th>Sex</th>
-    <th>Start Date</th>
-    <th>Specialization</th>
-    <th>Volunteers At</th>
     <th>City</th>
     <th>Address</th>
     <th>Birthday</th>
     <th>Phone</th>
     <th>Email</th>
-    <th>Supervisor Id</th>
-    <th>Supervisor Name</th>
+    <th>Salary</th>
+    <th>Supervisee Id</th>
+    <th>Supervisee Name</th>
     
   </tr>
  
 <?php  
-  $sql = "SELECT DISTINCT p.ID, p.Fname,p.Lname,p.Sex,p.City,p.State,p.Country,p.Address,p.Bdate,p.Phone,p.Email,v.Super_id, sh.Name, v.StartDate, s.Specialization 
-  FROM person as p, volunteer as v, specialization as s, shelter as sh, volunteer_at as va 
-  WHERE p.ID = v.ID AND s.ID = v.ID AND va.ID = v.ID AND va.Snum = sh.Snum";
+  
+  $sql = "SELECT * FROM person as p, supervisor as s WHERE s.ID = p.ID AND s.ID NOT IN
+              (SELECT v.Super_id FROM volunteer as v WHERE v.Super_id = s.ID)";
   $result = $conn->query($sql);
 
-  
+  $sql2 = "SELECT * FROM person as p, supervisor as s WHERE s.ID = p.ID AND s.ID IN
+              (SELECT v.Super_id FROM volunteer as v WHERE v.Super_id = s.ID)";
+  $result2 = $conn->query($sql2);
+
+  // $sql3 = "SELECT p.Fname, p.Lname, p.ID FROM person as p, volunteer as v, supervisor as s WHERE p.ID = v.ID AND v.Super_id = s.ID";
+  // $result3 = $conn->query($sql3);
+
 
 $id_array = array();
 $n = 0;
 while($row = mysqli_fetch_array($result))
-  { 
-    $sql2 = "SELECT p.Fname, p.Lname FROM person as p 
-    WHERE p.ID IN (SELECT v.Super_id FROM person as p, volunteer as v, specialization as s WHERE p.ID = v.ID AND s.ID = v.ID)";
-    $result2 = $conn->query($sql2);
-
-    $row2 = mysqli_fetch_array($result2);
-    array_push($id_array, $row['ID']);
+  {
     
+    array_push($id_array, $row['ID']);
     echo "<tr>"; 
-    echo '<td>  <a  href="editVolunteer.php?ID=' . $id_array[$n] . '" class="btn btn-primary"> Edit </a></td>';
+    echo '<td>  <a  href="editSupervisor.php?ID=' . $id_array[$n] . '" class="btn btn-primary"> Edit </a></td>';
     echo "<td>" . $id_array[$n] . "</td>";
     echo "<td>" . $row['Fname'] ." ". $row['Lname'] . "</td>";
     echo "<td>" . $row['Sex'] . "</td>";
-    echo "<td>" . $row['StartDate'] . "</td>";
-    echo "<td>" . $row['Specialization'] . "</td>";
-    echo "<td>" . $row['Name'] . "</td>";
     echo "<td>" . $row['City'] . " ". $row['State']. " ". $row['Country'] . "</td>";
     echo "<td>" . $row['Address'] . "</td>";
     echo "<td>" . $row['Bdate'] . "</td>";
     echo "<td>" . $row['Phone'] . "</td>";
     echo "<td>" . $row['Email'] . "</td>";
-    echo "<td>" . $row['Super_id'] . "</td>";
-    echo "<td>" . $row2['Fname'] ." ".$row2['Lname'] . "</td>";
+    echo "<td>" . $row['Salary'] . "</td>";
+    echo "<td>" . " " . "</td>";
+    echo "<td>" . " " . "</td>";
     echo "</tr>";
     $n++;
+  
   }
-
+  while($row2 = mysqli_fetch_array($result2)){
+    $sql3 = "SELECT DISTINCT p.Fname, p.Lname, p.ID FROM person as p, volunteer as v, supervisor as s WHERE p.ID = v.ID AND v.Super_id = $row2[ID]";
+    $result3 = $conn->query($sql3);
+    while($row3 = mysqli_fetch_array($result3)){
+    array_push($id_array, $row2['ID']);
+    
+    echo "<tr>"; 
+    echo '<td>  <a  href="editSupervisor.php?ID=' . $id_array[$n] . '" class="btn btn-primary"> Edit </a></td>';
+    echo "<td>" . $id_array[$n] . "</td>";
+    echo "<td>" . $row2['Fname'] ." ". $row2['Lname'] . "</td>";
+    echo "<td>" . $row2['Sex'] . "</td>";
+    echo "<td>" . $row2['City'] . " ". $row2['State']. " ". $row2['Country'] . "</td>";
+    echo "<td>" . $row2['Address'] . "</td>";
+    echo "<td>" . $row2['Bdate'] . "</td>";
+    echo "<td>" . $row2['Phone'] . "</td>";
+    echo "<td>" . $row2['Email'] . "</td>";
+    echo "<td>" . $row2['Salary'] . "</td>";
+    echo "<td>" . $row3['ID'] . "</td>";
+    echo "<td>" . $row3['Fname'] ." ".$row3['Lname'] . "</td>";
+    echo "</tr>";
+    $n++;
+    }
+  }
   $_SESSION['$id_array'] = $id_array;
   
   $conn->close();

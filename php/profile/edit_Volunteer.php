@@ -20,7 +20,7 @@
             $stmt->bind_param("i", $super_id);
             $stmt->execute();
             $stmt->get_result();
-            if($stmt->num_rows ==0){
+            if($stmt->num_rows != 0){
                  echo "Supervisor ID not found.";
             }else {
                 if ($stmt = $conn->prepare('UPDATE volunteer SET Super_id = ? WHERE ID = ?'))
@@ -36,7 +36,7 @@
             $stmt->bind_param("i", $snum);
             $stmt->execute();
             $stmt->get_result();
-            if($stmt->num_rows ==0){
+            if($stmt->num_rows != 0){
                 echo "Shelter not found.";
             }else {
                if ($stmt = $conn->prepare('UPDATE volunteer_at SET Snum = ? WHERE ID = ?'))

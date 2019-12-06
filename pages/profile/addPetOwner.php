@@ -30,7 +30,11 @@
                         <label for="pid">Pet ID</label>
                         <input type="text" class="form-control" id="spec" name="pid" placeholder="Enter Pet ID">
                     </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="form-group">
+                        <label for="ad">Adopted Date</label>
+                        <input type="date" class="form-control" id="ad" name="ad" placeholder="YYYY-MM-DD">
+                    </div>
+                <button type="submit" class="btn btn-primary" name="sb">Submit</button>
                 </form>
             </div> 
         </p>

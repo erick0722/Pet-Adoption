@@ -1,3 +1,7 @@
+<?php
+session_start(); 
+require '../../php/db_connection.php';
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -18,29 +22,20 @@
     </head>
     <body>
         <p>
-            <h3 id="title">Add a Volunteer</h3>
+            <h3 id="title">Edit Supervisor</h3>
             <div id="loginbox">
-                <form action="../../php/profile/add_Volunteer.php" method="post">
+                <form action="../../php/profile/edit_Supervisor.php" method="post">
                     <div class="form-group">
-                        <label for="id">Person ID:</label>
-                        <input type="number" class="form-control" id="id" name="id" placeholder="Enter person ID">
-                        <small id="id" class="form-text text-muted">Enter the id of a person, who will turn into a volunteer</small>
+                        <label for="id">Supervisor ID:</label>
+                        <?php echo "<input type=\"number\" class=\"form-control\" id=\"id\" name=\"id\" value=" . $_GET['ID'] . " readonly>"; ?>
                     </div>
                     <div class="form-group">
-                        <label for="spec">Specialization</label>
-                        <input type="text" class="form-control" id="spec" name="spec" placeholder="Enter Specialization">
+                        <label for="salary">Salary</label>
+                        <input type="text" class="form-control" id="salary" name="salary" placeholder="Enter Salary">
                     </div>
                     <div class="form-group">
-                        <label for="sd">Start Date</label>
-                        <input type="date" class="form-control" id="sd" name="sd" placeholder="YYYY-MM-DD">
-                    </div>
-                    <div class="form-group">
-                        <label for="sid">Supervisor ID:</label>
-                        <input type="number" class="form-control" id="sid" name="sid" placeholder="Enter supervisor ID">
-                    </div>
-                    <div class="form-group">
-                        <label for="snum">Shelter Number:</label>
-                        <input type="number" class="form-control" id="snum" name="snum" placeholder="Enter shelter number">
+                        <label for="vid">Supervisee ID:</label>
+                        <input type="number" class="form-control" id="vid" name="vid" placeholder="Enter volunteer ID">
                     </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

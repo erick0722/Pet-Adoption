@@ -11,6 +11,7 @@ OR (`Adopt_date` LIKE '%".$search."%') OR (`Donor_id` LIKE '%".$search."%') OR (
 OR (`Owner_id` LIKE '%".$search."%')";
 $result = $conn->query($sql);
 
+
 ?>
 
 <!DOCTYPE html>

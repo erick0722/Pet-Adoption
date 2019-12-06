@@ -88,6 +88,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+              <a class="nav-link" href="./shelter/allShelters.php">All Shelters</a>
+            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Browse Pets
@@ -95,7 +98,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="./pets/allCats.php">Cats</a>
                 <a class="dropdown-item" href="./pets/allDogs.php">Dogs</a>
-                <a class="dropdown-item" href="./pets/allCritters#">Critters</a>
+                <a class="dropdown-item" href="./pets/allCritters.php">Critters</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="./pets/allPet.php">All Pets</a>
                 <a class="dropdown-item" href="./pets/listReservedPets.php">All Reserved Pets</a>
@@ -124,6 +127,10 @@
                     <a class="dropdown-item" href="./profile/addPetOwner.php">Add Pet Owner</a>
                 <?php  
                   if($_SESSION["admin"]) { ?>
+                    <div class="dropdown-divider"></div> 
+                    <a class="dropdown-item" href="./profile/allPerson.php">All Users</a> 
+                    <a class="dropdown-item" href="./profile/allVolunteer.php">All Volunteers</a> 
+                    <a class="dropdown-item" href="./profile/allSupervisor.php">All Supervisors</a>
                     <div class="dropdown-divider"></div> 
                     <a class="dropdown-item" href="./profile/addVolunteer.php">Add Volunteer</a> 
                     <a class="dropdown-item" href="./profile/addSupervisor.php">Add Supervisor</a>

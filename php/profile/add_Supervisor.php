@@ -20,7 +20,7 @@
             }
         }
     }
-    header('Location: ../../pages/homepage.php');
+    header('Location: ../../pages/profile/allSupervisor.php');
     
     
     $conn->close();
