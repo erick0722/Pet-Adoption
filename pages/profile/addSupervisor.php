@@ -1,3 +1,27 @@
+<?php 
+  session_start(); 
+  require '../../php/db_connection.php';
+
+  $badPage = true;
+  $sql = "SELECT ID FROM person";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+          if($_SESSION["id"] == $row["ID"]) {
+            $badPage = false;
+          }
+      }
+  }
+  if($badPage) {
+    // remove all session variables
+    session_unset();
+  
+    // destroy the session
+    session_destroy();
+  
+    header("Location: ../index.php");
+  }
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
