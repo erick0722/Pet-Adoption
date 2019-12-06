@@ -82,8 +82,8 @@
     </head>
     <body>
       <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="">Pet Next Door</a>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="homepage.php">Pet Next Door</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -126,6 +126,7 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="./profile/addPetOwner.php">Add Pet Owner</a>
+                    <a class="dropdown-item" href="./profile/allPetOwner.php">All Pet Owners</a>
                 <?php  
                   if($_SESSION["admin"]) { ?>
                     <div class="dropdown-divider"></div> 
@@ -141,8 +142,14 @@
                 </div>
               </li>
             <?php } ?>
-            <li class="nav-item">
-              <a class="nav-link" href="./donation/makeDonation.php">Make Donation</a>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Donations
+                </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="./donation/makeDonation.php">Make Donation</a>
+                <a class="dropdown-item" href="./donation/allDonations.php">All Donations</a>
+              </div>
             </li>
           </ul>
           <div>
@@ -158,19 +165,16 @@
         </div>
       </nav>
       </div>
-    <div class="outer-container" style=" 
-    padding-top: 10px;
-    padding-right: 30px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-
+    <div class="outer-container"
+     >  
+     <div  style=" 
     background-image: url('../assets/pets_big.png');
     height: 730px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: 90%;
-    color: rgb(250, 246, 246);"
-     >  
+    color: rgb(250, 246, 246);">
+     </div>
     </div>
   </body>
 </html>

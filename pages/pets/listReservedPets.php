@@ -81,6 +81,11 @@ $result = $conn->query($sql);
       crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../../css/tables.css">
 </head>
+<div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
 <body>
 <center>
 <h2>All Reserved Pets</h2>

@@ -65,29 +65,32 @@ $conn->close();
             <link rel="stylesheet" href="../../css/login.css">
            
     </head>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
     <body>
-        <p>
-            <h3 id="title">Add a Pet Owner</h3>
-            <div id="loginbox">
-                <form action="../../php/profile/add_Pet_Owner.php" method="post">
-                    <div class="form-group">
-                        <label for="id">Person ID:</label>
-                        <input type="number" class="form-control" id="id" name="id" placeholder="Enter person ID">
-                        <small id="id" class="form-text text-muted">Enter the id of a person, who will turn into a Pet Owner</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="pid">Pet ID</label>
-                        <input type="text" class="form-control" id="spec" name="pid" placeholder="Enter Pet ID">
-                    </div>
-                    <div class="form-group">
-                        <label for="ad">Adopted Date</label>
-                        <input type="date" class="form-control" id="ad" name="ad" placeholder="YYYY-MM-DD">
-                    </div>
-                <button type="submit" class="btn btn-primary" name="sb">Submit</button>
-                </form>
-            </div> 
-        </p>
-        <script src="" async defer></script>
+       
+        <h3 id="title">Add a Pet Owner</h3>
+        <div id="loginbox">
+            <form action="../../php/profile/add_Pet_Owner.php" method="post">
+                <div class="form-group">
+                    <label for="id">Person ID:</label>
+                    <input type="number" class="form-control" id="id" name="id" placeholder="Enter person ID">
+                    <small id="id" class="form-text text-muted">Enter the id of a person, who will turn into a Pet Owner</small>
+                </div>
+                <div class="form-group">
+                    <label for="pid">Pet ID</label>
+                    <input type="text" class="form-control" id="spec" name="pid" placeholder="Enter Pet ID">
+                </div>
+                <div class="form-group">
+                    <label for="ad">Adopted Date</label>
+                    <input type="date" class="form-control" id="ad" name="ad" placeholder="YYYY-MM-DD">
+                </div>
+            <button type="submit" class="btn btn-primary" name="sb">Submit</button>
+            </form>
+        </div> 
     </body>
 
 </html>

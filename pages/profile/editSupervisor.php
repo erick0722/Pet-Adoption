@@ -64,28 +64,30 @@
             <link rel="stylesheet" href="../../css/login.css">
            
     </head>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
     <body>
-        <p>
-            <h3 id="title">Edit Supervisor</h3>
-            <div id="loginbox">
-                <form action="../../php/profile/edit_Supervisor.php" method="post">
-                    <div class="form-group">
-                        <label for="id">Supervisor ID:</label>
-                        <?php echo "<input type=\"number\" class=\"form-control\" id=\"id\" name=\"id\" value=" . $_GET['ID'] . " readonly>"; ?>
-                    </div>
-                    <div class="form-group">
-                        <label for="salary">Salary</label>
-                        <input type="text" class="form-control" id="salary" name="salary" placeholder="Enter Salary">
-                    </div>
-                    <div class="form-group">
-                        <label for="vid">Supervisee ID:</label>
-                        <input type="number" class="form-control" id="vid" name="vid" placeholder="Enter volunteer ID">
-                    </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div> 
-        </p>
-        <script src="" async defer></script>
+        <h3 id="title">Edit Supervisor</h3>
+        <div id="loginbox">
+            <form action="../../php/profile/edit_Supervisor.php" method="post">
+                <div class="form-group">
+                    <label for="id">Supervisor ID:</label>
+                    <?php echo "<input type=\"number\" class=\"form-control\" id=\"id\" name=\"id\" value=" . $_GET['ID'] . " readonly>"; ?>
+                </div>
+                <div class="form-group">
+                    <label for="salary">Salary</label>
+                    <input type="text" class="form-control" id="salary" name="salary" placeholder="Enter Salary">
+                </div>
+                <div class="form-group">
+                    <label for="vid">Supervisee ID:</label>
+                    <input type="number" class="form-control" id="vid" name="vid" placeholder="Enter volunteer ID">
+                </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div> 
     </body>
 
 </html>

@@ -74,10 +74,15 @@
       crossorigin="anonymous"></script>
       <link rel="stylesheet" href="../css/universal.css">
 </head>
+<div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
 <body>
 <center>
 <h2>All Users</h2>
-
+<br>
 <table>
   <tr>
     <th>Id</th>
@@ -100,7 +105,7 @@
     echo "<td>" . $row['ID'] . "</td>";
     echo "<td>" . $row['Fname'] . " " . $row['Lname']  . "</td>";
     echo "<td>" . $row['Sex'] . "</td>";
-    echo "<td>" . $row['City'] . " " . $row['State'] .  " " . $row['Country'] . "</td>";
+    echo "<td>" . $row['City'] . ", " . $row['State'] .  ", " . $row['Country'] . "</td>";
     echo "<td>" . $row['Address'] . "</td>";
     echo "<td>" . $row['Bdate'] . "</td>";
     echo "<td>" . $row['Phone'] . "</td>";

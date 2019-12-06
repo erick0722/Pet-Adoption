@@ -82,13 +82,18 @@
         <link rel="stylesheet" href="../../css/login.css">
     </head>
 
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+</nav>
+</div>
     <body>
         <h3 id="title">Add Pet</h3>
         <div id="loginbox">
           <form action="../../php/pet/add_Pet.php" method="post">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Iggy">
+                <input type="text" class="form-control" id="name" name="name" placeholder="" required>
             </div>
             <div class="form-group">
                 <label for="color">Color/Pattern:</label>
@@ -100,7 +105,7 @@
             </div>
             <div class="form-group">
                 <label for="s_id">Shelter ID:</label>
-                <input type="number" class="form-control" id="s_id" name="s_id" placeholder="">
+                <input type="number" class="form-control" id="s_id" name="s_id" placeholder="" required>
             </div>
             <div class="form-group">
               <label for="mcondition">Medical Conditions(If any):</label>
@@ -118,7 +123,7 @@
               </div>
               <div class="col">
                     <label for="breed">Breed:</label>
-                    <input type="text" name="breed" class="form-control" id="breed" name="breed">
+                    <input type="text" name="breed" class="form-control" id="breed" name="breed" required>
                 </div>
                 <div class="col">
                   <label for="sex">Sex:</label>

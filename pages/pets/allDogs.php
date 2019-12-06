@@ -74,6 +74,11 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
       crossorigin="anonymous"></script>
 </head>
+<div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
 <body>  
 <br>
 <center>
@@ -106,7 +111,10 @@
   $n = 0;
 while($row = mysqli_fetch_array($result))
   {
-    
+    $sql2 = "SELECT shelter.Name FROM dog, shelter, pet WHERE dog.Pet_id = $row[Pet_id] AND shelter.Snum = pet.Shelter_num";
+    $result2 = $conn->query($sql2);
+    $row2 = mysqli_fetch_array($result2);
+
     array_push($id_array, $row['Pet_id']);
     echo "<tr>";
     echo '<td>  <a  href="reservePet.php?ID=' . $id_array[$n] . '" class="btn btn-primary"> Reserve </a></td>';
@@ -120,7 +128,7 @@ while($row = mysqli_fetch_array($result))
     echo "<td>" . $row['Ready_to_adopt'] . "</td>";
     echo "<td>" . $row['Adopt_date'] . "</td>";
     echo "<td>" . $row['Donor_id'] . "</td>";
-    echo "<td>" . $row['Shelter_num'] . "</td>";
+    echo "<td>" . $row2['Name'] . "</td>";
     echo "<td>" . $row['Owner_id'] . "</td>";
     echo "</tr>";
     $n++;

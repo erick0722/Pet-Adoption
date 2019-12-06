@@ -27,16 +27,16 @@ session_destroy();
   </head>
     <body>
       <h1 id="sitetitle">Welcome to Pet Next Door!</h1>
-      <h3 id="title">Signup</h3>
+      <h3 id="title">Log in</h3>
       <div id="loginbox">
         <form action="./php/login-signup/loginUser.php" method="post">
           <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
           </div>
           <div class="form-group">
             <label for="pw">Password</label>
-            <input type="password" class="form-control" id="pw" name="pw" placeholder="Enter Password">
+            <input type="password" class="form-control" id="pw" name="pw" placeholder="Enter Password" required>
           </div>
         <button type="submit" class="btn btn-primary" id="btn" name="sb">Submit</button>
         </form>

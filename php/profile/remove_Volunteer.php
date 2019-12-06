@@ -12,7 +12,7 @@ if (isset($_POST['delete'])) {
                 $stmt->bind_param("i", $id); 
                 $stmt->execute();
 
-                header('Location: ../../pages/homepage.php?delete=success');
+                header('Location: ../../pages/profile/allVolunteer.php?delete=success');
             } else header('Location: ../../pages/homepage.php?delete=failed');
         } else header('Location: ../../pages/homepage.php?delete=failed');
     } else header('Location: ../../pages/homepage.php?delete=failed');

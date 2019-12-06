@@ -56,7 +56,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-        < <meta charset="utf-8">
+         <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <title>Pet next Door</title>
       <meta name="description" content="">
@@ -81,7 +81,11 @@
       crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../../css/login.css">
     </head>
-
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
     <body>
         <h3 id="title">Reserve Pet</h3>
         <div id="loginbox">

@@ -81,10 +81,16 @@ $result = $conn->query($sql);
       crossorigin="anonymous"></script>
       <link rel="stylesheet" href="../css/universal.css">
 </head>
+<div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
 <body>
 <center>
+<br>
 <h2>All Pet Shelters</h2>
-
+<br>
 <table>
   <tr>
     <th>Shelter Id</th>
@@ -99,7 +105,7 @@ $result = $conn->query($sql);
     echo "<tr>";
     echo "<td>" . $row['Snum'] . "</td>";
     echo "<td>" . $row['Name'] . "</td>";
-    echo "<td>" . $row['City'] . " " . $row['State'] .  " " . $row['Country'] . "</td>";
+    echo "<td>" . $row['City'] . ", " . $row['State'] .  ", " . $row['Country'] . "</td>";
     echo "<td>" . $row['Address'] . "</td>";
     echo "</tr>";
     }

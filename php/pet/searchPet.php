@@ -4,13 +4,27 @@ require '../../php/db_connection.php';
 
 $search = mysqli_real_escape_string($conn, $_POST["search"]);
 
-$sql = "SELECT * FROM pet
+$sresult1 = $conn->query("SELECT * FROM pet
 WHERE (`Pet_id` LIKE '%".$search."%') OR (`Name` LIKE '%".$search."%') OR (`Sex` LIKE '%".$search."%') OR (`Age` LIKE '%".$search."%') 
 OR (`Appearance` LIKE '%".$search."%') OR (`Conditions` LIKE '%".$search."%') OR (`Ready_to_adopt` LIKE '%".$search."%') 
 OR (`Adopt_date` LIKE '%".$search."%') OR (`Donor_id` LIKE '%".$search."%') OR (`Shelter_num` LIKE '%".$search."%') 
-OR (`Owner_id` LIKE '%".$search."%')";
-$result = $conn->query($sql);
+OR (`Owner_id` LIKE '%".$search."%')");
 
+$sresult2 = $conn->query("SELECT * FROM pet, shelter WHERE pet.Shelter_num = shelter.Snum AND (shelter.Name LIKE '%$search%')");
+$sresult3 = $conn->query("SELECT * FROM pet,dog WHERE pet.Pet_id = dog.Pet_id AND (dog.Breed LIKE '%$search%')");
+$sresult4 = $conn->query("SELECT * FROM pet,cat WHERE pet.Pet_id = cat.Pet_id AND (cat.Breed LIKE '%$search%')");
+$sresult5 = $conn->query("SELECT * FROM pet,critter WHERE pet.Pet_id = critter.Pet_id AND (critter.Breed LIKE '%$search%')");
+
+if($sresult1->num_rows != 0)
+  $result = $sresult1;
+else if($sresult2->num_rows != 0)
+  $result = $sresult2;
+else if($sresult3->num_rows != 0)
+  $result = $sresult3;
+else if($sresult4->num_rows != 0)
+  $result = $sresult4;
+else
+  $result = $sresult5;
 
 ?>
 
@@ -51,6 +65,7 @@ $result = $conn->query($sql);
 
 <table>
   <tr>
+    <th>Reserve</th>
     <th>Pet Id</th>
     <th>Name</th>
     <th>Breed</th>
@@ -67,34 +82,44 @@ $result = $conn->query($sql);
  
 <?php
   
-
+  $id_array = array();
+  $n = 0;
 while($row = mysqli_fetch_array($result))
   {
-    $result1 = $conn->query("SELECT * FROM dog WHERE pet_id = $row[Pet_id]");
-    $result2 = $conn->query("SELECT * FROM cat WHERE pet_id = $row[Pet_id]");
-    $result3 = $conn->query("SELECT * FROM critter WHERE pet_id = $row[Pet_id]");
+      $result1 = $conn->query("SELECT * FROM dog WHERE pet_id = $row[Pet_id]");
+      $result2 = $conn->query("SELECT * FROM cat WHERE pet_id = $row[Pet_id]");
+      $result3 = $conn->query("SELECT * FROM critter WHERE pet_id = $row[Pet_id]");
 
-    if($result1->num_rows != 0) 
-      $row2 = mysqli_fetch_array($result1);
-    else if($result2->num_rows != 0) 
-      $row2 = mysqli_fetch_array($result2);
-    else
-      $row2 = mysqli_fetch_array($result3);
+      if($result1->num_rows != 0) 
+        $row2 = mysqli_fetch_array($result1);
+      else if($result2->num_rows != 0) 
+        $row2 = mysqli_fetch_array($result2);
+      else
+        $row2 = mysqli_fetch_array($result3);
 
-    echo "<tr>";
-    echo "<td>" . $row['Pet_id'] . "</td>";
-    echo "<td>" . $row['Name'] . "</td>";
-    echo "<td>" . $row2['Breed'] . "</td>";
-    echo "<td>" . $row['Sex'] . "</td>";
-    echo "<td>" . $row['Age'] . "</td>";
-    echo "<td>" . $row['Appearance'] . "</td>";
-    echo "<td>" . $row['Conditions'] . "</td>";
-    echo "<td>" . $row['Ready_to_adopt'] . "</td>";
-    echo "<td>" . $row['Adopt_date'] . "</td>";
-    echo "<td>" . $row['Donor_id'] . "</td>";
-    echo "<td>" . $row['Shelter_num'] . "</td>";
-    echo "<td>" . $row['Owner_id'] . "</td>";
-    echo "</tr>";
+      array_push($id_array, $row['Pet_id']);
+
+      $sql4 = "SELECT shelter.Name FROM pet, shelter WHERE pet.Pet_id = $row[Pet_id] AND shelter.Snum = pet.Shelter_num";
+      $result4 = $conn->query($sql4);
+      $row4 = mysqli_fetch_array($result4);
+
+      echo "<tr>";
+      echo '<td>  <a  href="../../pages/pets/reservePet.php?ID=' . $id_array[$n] . '" class="btn btn-primary"> Reserve </a></td>';
+      echo "<td>" . $row['Pet_id'] . "</td>";
+      echo "<td>" . $row['Name'] . "</td>";
+      echo "<td>" . $row2['Breed'] . "</td>";
+      echo "<td>" . $row['Sex'] . "</td>";
+      echo "<td>" . $row['Age'] . "</td>";
+      echo "<td>" . $row['Appearance'] . "</td>";
+      echo "<td>" . $row['Conditions'] . "</td>";
+      echo "<td>" . $row['Ready_to_adopt'] . "</td>";
+      echo "<td>" . $row['Adopt_date'] . "</td>";
+      echo "<td>" . $row['Donor_id'] . "</td>";
+      echo "<td>" . $row4['Name'] . "</td>";
+      echo "<td>" . $row['Owner_id'] . "</td>";
+      echo "</tr>";
+      $n++;
+
   }
   
   $conn->close();

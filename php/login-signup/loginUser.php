@@ -30,7 +30,7 @@
                         $_SESSION['country'] = $row['Country'];
                         $_SESSION['state']   = $row['State'];
                         $_SESSION['city']    = $row['City'];
-                        $_SESSION['address'] = $row['address'];
+                        $_SESSION['address'] = $row['Address'];
                         $_SESSION['bdate']   = $row['Bdate'];
                         $_SESSION['phone']   = $row['Phone'];
                         $_SESSION['email']   = $row['Email'];

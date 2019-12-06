@@ -107,7 +107,7 @@
                     }
             }
 
-            header('Location: ../../pages/homepage.php');
+            header('Location: ../../pages/pets/allPet.php');
             
         }
       

@@ -65,36 +65,38 @@
             <link rel="stylesheet" href="../../css/login.css">
            
     </head>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
     <body>
-        <p>
-            <h3 id="title">Edit Volunteer</h3>
-            <div id="loginbox">
-                <form action="../../php/profile/edit_Volunteer.php" method="post">
-                    <div class="form-group">
-                        <label for="id">Volunteer ID:</label>
-                        <?php echo "<input type=\"number\" class=\"form-control\" id=\"id\" name=\"id\" value=" . $_GET['ID'] . " readonly>"; ?>
-                    </div>
-                    <div class="form-group">
-                        <label for="spec">Specialization</label>
-                        <input type="text" class="form-control" id="spec" name="spec" placeholder="Enter Specialization">
-                    </div>
-                    <div class="form-group">
-                        <label for="sd">Start Date</label>
-                        <input type="date" class="form-control" id="sd" name="sd" placeholder="YYYY-MM-DD">
-                    </div>
-                    <div class="form-group">
-                        <label for="sid">Supervisor ID:</label>
-                        <input type="number" class="form-control" id="sid" name="sid" placeholder="Enter supervisor ID">
-                    </div>
-                    <div class="form-group">
-                        <label for="snum">Shelter Number:</label>
-                        <input type="number" class="form-control" id="snum" name="snum" placeholder="Enter shelter number">
-                    </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div> 
-        </p>
-        <script src="" async defer></script>
+        <h3 id="title">Edit Volunteer</h3>
+        <div id="loginbox">
+            <form action="../../php/profile/edit_Volunteer.php" method="post">
+                <div class="form-group">
+                    <label for="id">Volunteer ID:</label>
+                    <?php echo "<input type=\"number\" class=\"form-control\" id=\"id\" name=\"id\" value=" . $_GET['ID'] . " readonly>"; ?>
+                </div>
+                <div class="form-group">
+                    <label for="spec">Specialization</label>
+                    <input type="text" class="form-control" id="spec" name="spec" placeholder="Enter Specialization">
+                </div>
+                <div class="form-group">
+                    <label for="sd">Start Date</label>
+                    <input type="date" class="form-control" id="sd" name="sd" placeholder="YYYY-MM-DD">
+                </div>
+                <div class="form-group">
+                    <label for="sid">Supervisor ID:</label>
+                    <input type="number" class="form-control" id="sid" name="sid" placeholder="Enter supervisor ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="snum">Shelter Number:</label>
+                    <input type="number" class="form-control" id="snum" name="snum" placeholder="Enter shelter number" required>
+                </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div> 
     </body>
 
 </html>

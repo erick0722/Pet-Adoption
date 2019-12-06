@@ -65,37 +65,40 @@
             <link rel="stylesheet" href="../../css/login.css">
            
     </head>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
     <body>
-        <p>
-            <h3 id="title">Add a Volunteer</h3>
-            <div id="loginbox">
-                <form action="../../php/profile/add_Volunteer.php" method="post">
-                    <div class="form-group">
-                        <label for="id">Person ID:</label>
-                        <input type="number" class="form-control" id="id" name="id" placeholder="Enter person ID">
-                        <small id="id" class="form-text text-muted">Enter the id of a person, who will turn into a volunteer</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="spec">Specialization</label>
-                        <input type="text" class="form-control" id="spec" name="spec" placeholder="Enter Specialization">
-                    </div>
-                    <div class="form-group">
-                        <label for="sd">Start Date</label>
-                        <input type="date" class="form-control" id="sd" name="sd" placeholder="YYYY-MM-DD">
-                    </div>
-                    <div class="form-group">
-                        <label for="sid">Supervisor ID:</label>
-                        <input type="number" class="form-control" id="sid" name="sid" placeholder="Enter supervisor ID">
-                    </div>
-                    <div class="form-group">
-                        <label for="snum">Shelter Number:</label>
-                        <input type="number" class="form-control" id="snum" name="snum" placeholder="Enter shelter number">
-                    </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div> 
-        </p>
-        <script src="" async defer></script>
+
+        <h3 id="title">Add a Volunteer</h3>
+        <div id="loginbox">
+            <form action="../../php/profile/add_Volunteer.php" method="post">
+                <div class="form-group">
+                    <label for="id">Person ID:</label>
+                    <input type="number" class="form-control" id="id" name="id" placeholder="Enter person ID">
+                    <small id="id" class="form-text text-muted">Enter the id of a person, who will turn into a volunteer</small>
+                </div>
+                <div class="form-group">
+                    <label for="spec">Specialization</label>
+                    <input type="text" class="form-control" id="spec" name="spec" placeholder="Enter Specialization">
+                </div>
+                <div class="form-group">
+                    <label for="sd">Start Date</label>
+                    <input type="date" class="form-control" id="sd" name="sd" placeholder="YYYY-MM-DD">
+                </div>
+                <div class="form-group">
+                    <label for="sid">Supervisor ID:</label>
+                    <input type="number" class="form-control" id="sid" name="sid" placeholder="Enter supervisor ID">
+                </div>
+                <div class="form-group">
+                    <label for="snum">Shelter Number:</label>
+                    <input type="number" class="form-control" id="snum" name="snum" placeholder="Enter shelter number">
+                </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div> 
     </body>
 
 </html>

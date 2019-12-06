@@ -70,8 +70,13 @@
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
       crossorigin="anonymous"></script>
 </head>
+<div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
 <body>  
-<br>
+
 <center>
 <h2>All Pet Owners</h2>
 </center>
@@ -130,7 +135,7 @@ while($row = mysqli_fetch_array($result))
     echo "<td>" . $id_array[$n] . "</td>";
     echo "<td>" . $row['Fname'] ." ". $row['Lname'] . "</td>";
     echo "<td>" . $row['Sex'] . "</td>";
-    echo "<td>" . $row['City'] . " ". $row['State']. " ". $row['Country'] . "</td>";
+    echo "<td>" . $row['City'] . ", ". $row['State']. ", ". $row['Country'] . "</td>";
     echo "<td>" . $row['Address'] . "</td>";
     echo "<td>" . $row['Bdate'] . "</td>";
     echo "<td>" . $row['Phone'] . "</td>";

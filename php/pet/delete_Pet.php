@@ -10,12 +10,12 @@ if (isset($_POST['delete'])) {
             $stmt->execute();
             if ($conn->query($sql) === TRUE) {
                 echo "New record created successfully";
-                header('Location: ../../pages/homepage.php?delete=success');
+                header('Location: ../../pages/pets/allPet.php?delete=success');
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
-                header('Location: ../../pages/homepage.php?delete=failed-queryFailed');
+                header('Location: ../../pages/pets/allPet.php?delete=failed-queryFailed');
             }
         }
-    } else header('Location: ../../pages/homepage.php?delete=failed-idNull');
-} else header('Location: ../../pages/homepage.php?delete=failed-formBroken');
+    } else header('Location: ../../pages/pets/allPet.php?delete=failed-idNull');
+} else header('Location: ../../pages/pets/allPet.php?delete=failed-formBroken');
 ?>

@@ -35,11 +35,11 @@
         <div class="row">
           <div class="col">
             <label for="fname">First name</label>
-            <input type="text" class="form-control" id="fname" name="fname" placeholder="John">
+            <input type="text" class="form-control" id="fname" name="fname" placeholder="John" required>
           </div>
           <div class="col">
             <label for="lname">Last name</label>
-            <input type="text" class="form-control" id="lname" name="lname" placeholder="Smith">
+            <input type="text" class="form-control" id="lname" name="lname" placeholder="Smith" required>
           </div>
         </div>
       </div>
@@ -86,16 +86,16 @@
         </div>
         <div class="form-group">
           <label for="email">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
           <label for="pw1">Password</label>
-          <input type="password" class="form-control" id="pw1" name="pw1" oninput="check_pass()" placeholder="Enter password">
+          <input type="password" class="form-control" id="pw1" name="pw1" oninput="check_pass()" placeholder="Enter password" required>
         </div>
         <div class="form-group">
           <label for="pw2">Confirm Password</label>
-          <input type="password" class="form-control" id="pw2" name="pw2" oninput="check_pass()" placeholder="Re-enter password">
+          <input type="password" class="form-control" id="pw2" name="pw2" oninput="check_pass()" placeholder="Re-enter password" required>
         </div>
         <p id="pw-error">Passwords must match.</p>
         <button type="submit" class="btn btn-primary" id="btn" name="sb" disabled="disabled">Submit</button>

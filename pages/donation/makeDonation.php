@@ -68,6 +68,11 @@
             <link rel="stylesheet" href="../../css/login.css">
            
     </head>
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
     <body>
         <p>
             <h3 id="title">Make a Donation</h3>
@@ -75,12 +80,12 @@
                 <form action="../../php/profile/make_Donation.php" method="post">
                     <div class="form-group">
                         <label for="sname">Shelter Name:</label>
-                        <input type="text" class="form-control" id="sname" name="sname" placeholder="Enter Shelter Name">
+                        <input type="text" class="form-control" id="sname" name="sname" placeholder="Enter Shelter Name" required>
                         <small id="id" class="form-text text-muted">Enter the shelter name which you wish to donate to </small>
                     </div>
                     <div class="form-group">
                         <label for="amount">Donation Amount</label>
-                        <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter Amount">
+                        <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter Amount" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Enter Message</label>

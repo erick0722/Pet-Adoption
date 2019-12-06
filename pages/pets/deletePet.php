@@ -81,14 +81,18 @@
       crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../../css/login.css">
     </head>
-
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
     <body>
         <h3 id="title">Delete Pet</h3>
         <div id="loginbox">
           <form action="../../php/pet/delete_Pet.php" method="post">
             <div class="form-group">
                 <label for="id">ID:</label>
-                <input type="number" class="form-control" id="id" name="id" placeholder="Enter Pet ID">
+                <input type="number" class="form-control" id="id" name="id" placeholder="Enter Pet ID" required>
               <br><button type="submit" name="delete"  class="btn btn-danger">Delete</button></br>
             </div>
           </form>
