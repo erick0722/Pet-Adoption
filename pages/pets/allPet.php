@@ -118,16 +118,12 @@
 
   while($row = mysqli_fetch_array($result))
     {
-      $result1 = $conn->query("SELECT * FROM dog WHERE pet_id = $row[Pet_id]");
-      $result2 = $conn->query("SELECT * FROM cat WHERE pet_id = $row[Pet_id]");
-      $result3 = $conn->query("SELECT * FROM critter WHERE pet_id = $row[Pet_id]");
+      $result1 = $conn->query("(SELECT * FROM dog WHERE pet_id = $row[Pet_id]) 
+                    UNION (SELECT * FROM cat WHERE pet_id = $row[Pet_id])
+                    UNION (SELECT * FROM critter WHERE pet_id = $row[Pet_id])");
 
-      if($result1->num_rows != 0) 
-        $row2 = mysqli_fetch_array($result1);
-      else if($result2->num_rows != 0) 
-        $row2 = mysqli_fetch_array($result2);
-      else
-        $row2 = mysqli_fetch_array($result3);
+     
+      $row2 = mysqli_fetch_array($result1);
 
       array_push($id_array, $row['Pet_id']);
 

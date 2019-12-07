@@ -109,10 +109,6 @@
               (SELECT v.Super_id FROM volunteer as v WHERE v.Super_id = s.ID)";
   $result2 = $conn->query($sql2);
 
-  // $sql3 = "SELECT p.Fname, p.Lname, p.ID FROM person as p, volunteer as v, supervisor as s WHERE p.ID = v.ID AND v.Super_id = s.ID";
-  // $result3 = $conn->query($sql3);
-
-
 $id_array = array();
 $n = 0;
 while($row = mysqli_fetch_array($result))

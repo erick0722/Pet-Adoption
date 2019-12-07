@@ -162,13 +162,10 @@
                                     }
                             }
                         }
-
-                    
             
                     }
       
                 }
-    
     }
     
     header('Location: ../../pages/pets/allPet.php');

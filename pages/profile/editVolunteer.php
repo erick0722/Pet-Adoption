@@ -70,6 +70,7 @@
         <a class="navbar-brand" href="../homepage.php">Pet Next Door</a>
       </nav>
     </div>
+    
     <body>
         <h3 id="title">Edit Volunteer</h3>
         <div id="loginbox">

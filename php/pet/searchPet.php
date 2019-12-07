@@ -11,20 +11,16 @@ OR (`Adopt_date` LIKE '%".$search."%') OR (`Donor_id` LIKE '%".$search."%') OR (
 OR (`Owner_id` LIKE '%".$search."%')");
 
 $sresult2 = $conn->query("SELECT * FROM pet, shelter WHERE pet.Shelter_num = shelter.Snum AND (shelter.Name LIKE '%$search%')");
-$sresult3 = $conn->query("SELECT * FROM pet,dog WHERE pet.Pet_id = dog.Pet_id AND (dog.Breed LIKE '%$search%')");
-$sresult4 = $conn->query("SELECT * FROM pet,cat WHERE pet.Pet_id = cat.Pet_id AND (cat.Breed LIKE '%$search%')");
-$sresult5 = $conn->query("SELECT * FROM pet,critter WHERE pet.Pet_id = critter.Pet_id AND (critter.Breed LIKE '%$search%')");
+$sresult3 = $conn->query("(SELECT * FROM pet,dog WHERE pet.Pet_id = dog.Pet_id AND (dog.Breed LIKE '%$search%')) 
+                        UNION (SELECT * FROM pet,cat WHERE pet.Pet_id = cat.Pet_id AND (cat.Breed LIKE '%$search%'))
+                        UNION (SELECT * FROM pet,critter WHERE pet.Pet_id = critter.Pet_id AND (critter.Breed LIKE '%$search%'))");
 
 if($sresult1->num_rows != 0)
   $result = $sresult1;
 else if($sresult2->num_rows != 0)
   $result = $sresult2;
-else if($sresult3->num_rows != 0)
-  $result = $sresult3;
-else if($sresult4->num_rows != 0)
-  $result = $sresult4;
 else
-  $result = $sresult5;
+  $result = $sresult3;
 
 ?>
 
@@ -52,6 +48,11 @@ else
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
       crossorigin="anonymous"></script>
 </head>
+<div>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="../../pages/homepage.php">Pet Next Door</a>
+      </nav>
+    </div>
 <body>  
 <center>
 <h2>All Pets</h2>
@@ -86,16 +87,11 @@ else
   $n = 0;
 while($row = mysqli_fetch_array($result))
   {
-      $result1 = $conn->query("SELECT * FROM dog WHERE pet_id = $row[Pet_id]");
-      $result2 = $conn->query("SELECT * FROM cat WHERE pet_id = $row[Pet_id]");
-      $result3 = $conn->query("SELECT * FROM critter WHERE pet_id = $row[Pet_id]");
+    $result1 = $conn->query("(SELECT * FROM dog WHERE pet_id = $row[Pet_id]) 
+    UNION (SELECT * FROM cat WHERE pet_id = $row[Pet_id])
+    UNION (SELECT * FROM critter WHERE pet_id = $row[Pet_id])");
 
-      if($result1->num_rows != 0) 
-        $row2 = mysqli_fetch_array($result1);
-      else if($result2->num_rows != 0) 
-        $row2 = mysqli_fetch_array($result2);
-      else
-        $row2 = mysqli_fetch_array($result3);
+    $row2 = mysqli_fetch_array($result1);
 
       array_push($id_array, $row['Pet_id']);
 

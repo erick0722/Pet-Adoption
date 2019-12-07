@@ -113,7 +113,7 @@ $n = 0;
 while($row = mysqli_fetch_array($result))
   { 
     $sql2 = "SELECT p.Fname, p.Lname FROM person as p 
-    WHERE p.ID IN (SELECT v.Super_id FROM person as p, volunteer as v, specialization as s WHERE p.ID = v.ID AND s.ID = v.ID)";
+    WHERE p.ID IN (SELECT v.Super_id FROM person as p, volunteer as v WHERE $row[ID] = v.ID)";
     $result2 = $conn->query($sql2);
 
     $row2 = mysqli_fetch_array($result2);
